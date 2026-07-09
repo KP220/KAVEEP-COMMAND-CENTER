@@ -1,0 +1,45 @@
+{
+  "evidenceId": "evidence_s003_a",
+  "title": "Supporting evidence A",
+  "description": "This evidence supports the claim under review.",
+  "evidenceType": "document",
+  "source": {
+    "sourceType": "repository",
+    "sourceRef": "examples/scenario-003-conflicting-evidence/source-a.md",
+    "sourceName": "Scenario 003 Source A",
+    "sourceVersion": "1.0",
+    "retrievedAt": "2026-07-09T17:00:00Z"
+  },
+  "citation": {
+    "preferredCitation": "Scenario 003 Source A",
+    "citationStyle": "repository",
+    "locator": "supporting-claim",
+    "license": "MIT"
+  },
+  "verificationStatus": "unverified",
+  "reliability": "moderate",
+  "independenceScore": 0.8,
+  "confidence": 0.72,
+  "knowledgeRefs": [],
+  "kcpSessionRefs": [
+    "kcp_s003_0001"
+  ],
+  "submittedByAgentId": "agent_reviewer_001",
+  "contentRef": "examples/scenario-003-conflicting-evidence/source-a.md",
+  "auditRefs": [
+    "audit_s003_0001"
+  ],
+  "eventRefs": [
+    "event_s003_0001"
+  ],
+  "metadata": {
+    "scenario": "scenario-003-conflicting-evidence",
+    "claimPosition": "supports",
+    "conflictGroup": "claim_s003_0001",
+    "schemaVersion": "1.0.0"
+  },
+  "extensions": {},
+  "collectedAt": "2026-07-09T17:00:00Z",
+  "createdAt": "2026-07-09T17:00:00Z",
+  "updatedAt": "2026-07-09T17:00:00Z"
+}
