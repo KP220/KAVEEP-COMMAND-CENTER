@@ -1,0 +1,30 @@
+{
+  "eventId": "event_s003_0001",
+  "eventType": "kcp.session.completed",
+  "eventVersion": "1.0.0",
+  "timestamp": "2026-07-09T17:10:00Z",
+  "publisher": "agent_kcp_engine",
+  "correlationId": "kcp_s003_0001",
+  "relatedEntityId": "kcp_s003_0001",
+  "relatedEntityType": "kcp_session",
+  "priority": "high",
+  "category": "kcp",
+  "securityClassification": "internal",
+  "payloadRef": "payload_event_s003_0001",
+  "auditRef": "audit_s003_0001",
+  "delivery": {
+    "status": "published",
+    "subscriberCount": 4,
+    "deliveredCount": 4,
+    "failedCount": 0
+  },
+  "metadata": {
+    "scenario": "scenario-003-conflicting-evidence",
+    "verificationResult": "unverified",
+    "conflictDetected": true,
+    "knowledgePublished": false,
+    "schemaVersion": "1.0.0"
+  },
+  "extensions": {},
+  "createdAt": "2026-07-09T17:10:00Z"
+}
