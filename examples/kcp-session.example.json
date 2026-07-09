@@ -1,0 +1,79 @@
+{
+  "kcpSessionId": "kcp_session_0001",
+  "question": "Does the updated audit schema correctly align with KAVEEP canonical schema conventions?",
+  "context": "Audit must be referenced by Knowledge, Evidence, Agent, Policy, and KCP verification results.",
+  "status": "consensus_reached",
+  "verificationResult": "verified",
+  "verificationLevel": "verified",
+  "confidence": 0.94,
+  "evidenceRefs": [
+    "evidence_000045",
+    "evidence_000112",
+    "evidence_000205"
+  ],
+  "knowledgeRefs": [
+    "knowledge_000001"
+  ],
+  "policyRefs": [
+    "policy_kcp_001",
+    "policy_evidence_001"
+  ],
+  "missionId": "mission_command_center_schema_alignment",
+  "taskId": "task_audit_schema_alignment",
+  "participantAgentIds": [
+    "agent_reviewer_001",
+    "agent_reviewer_002",
+    "agent_reviewer_003"
+  ],
+  "participantSummaries": [
+    {
+      "agentId": "agent_reviewer_001",
+      "recommendation": "verified",
+      "confidence": 0.93,
+      "reasoningSummary": "Audit schema now uses canonical camelCase fields and compatible ID references.",
+      "evidenceUsed": [
+        "evidence_000045"
+      ]
+    },
+    {
+      "agentId": "agent_reviewer_002",
+      "recommendation": "verified",
+      "confidence": 0.95,
+      "reasoningSummary": "Audit references now align with kcpSessionId, evidenceRefs, policyRefs, and knowledgeRefs conventions.",
+      "evidenceUsed": [
+        "evidence_000112"
+      ]
+    },
+    {
+      "agentId": "agent_reviewer_003",
+      "recommendation": "verified",
+      "confidence": 0.94,
+      "reasoningSummary": "The example now validates against the audit schema and supports traceability.",
+      "evidenceUsed": [
+        "evidence_000205"
+      ]
+    }
+  ],
+  "conflicts": [],
+  "decision": {
+    "summary": "Audit schema alignment is accepted.",
+    "reason": "The schema now follows KAVEEP canonical naming and reference conventions.",
+    "limitations": "Production systems should replace placeholder IDs and hashes with real generated values.",
+    "publishedKnowledgeId": "knowledge_000001"
+  },
+  "auditRefs": [
+    "audit_20260709_0001"
+  ],
+  "eventRefs": [
+    "event_schema_review_0001"
+  ],
+  "metadata": {
+    "schemaVersion": "0.1.0"
+  },
+  "extensions": {},
+  "startedAt": "2026-07-09T14:00:00Z",
+  "completedAt": "2026-07-09T14:30:00Z",
+  "publishedAt": "2026-07-09T14:35:00Z",
+  "createdAt": "2026-07-09T14:00:00Z",
+  "updatedAt": "2026-07-09T14:30:00Z"
+}
