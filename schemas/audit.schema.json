@@ -1,31 +1,39 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://kaveep.local/schemas/audit.schema.json",
+  "$id": "https://kaveep.dev/schemas/audit.schema.json",
   "title": "KAVEEP Audit Event",
+  "description": "Canonical audit event schema for traceability across KAVEEP entities, KCP sessions, evidence, policy checks, agents, and verification results.",
   "type": "object",
+  "additionalProperties": false,
   "required": [
-    "audit_id",
-    "event_type",
+    "auditId",
+    "eventType",
     "timestamp",
     "actor",
     "target",
     "action",
     "result",
-    "risk_level"
+    "riskLevel",
+    "createdAt"
   ],
   "properties": {
-    "audit_id": {
+    "auditId": {
       "type": "string",
-      "description": "Unique identifier for this audit event."
+      "pattern": "^audit_[a-zA-Z0-9_-]+$",
+      "description": "Stable unique identifier for this audit event."
     },
-    "event_type": {
+    "eventType": {
       "type": "string",
       "enum": [
         "knowledge_created",
         "knowledge_updated",
+        "knowledge_deprecated",
         "evidence_attached",
-        "agent_evaluation",
-        "policy_check",
+        "evidence_removed",
+        "agent_evaluation_started",
+        "agent_evaluation_completed",
+        "policy_check_started",
+        "policy_check_completed",
         "kcp_session_started",
         "kcp_session_completed",
         "truth_result_issued",
@@ -33,7 +41,12 @@
         "approval_granted",
         "approval_denied",
         "system_warning",
-        "simulation_executed"
+        "simulation_executed",
+        "execution_blocked",
+        "schema_created",
+        "schema_updated",
+        "example_created",
+        "example_updated"
       ]
     },
     "timestamp": {
@@ -42,28 +55,44 @@
     },
     "actor": {
       "type": "object",
-      "required": ["actor_id", "actor_type"],
+      "additionalProperties": false,
+      "required": [
+        "actorId",
+        "actorType"
+      ],
       "properties": {
-        "actor_id": {
+        "actorId": {
           "type": "string"
         },
-        "actor_type": {
+        "actorType": {
           "type": "string",
-          "enum": ["human", "agent", "system", "policy_engine", "kcp_engine"]
+          "enum": [
+            "human",
+            "agent",
+            "system",
+            "policy_engine",
+            "kcp_engine",
+            "audit_engine",
+            "schema_engine"
+          ]
         },
-        "actor_name": {
+        "actorName": {
           "type": "string"
         }
       }
     },
     "target": {
       "type": "object",
-      "required": ["target_id", "target_type"],
+      "additionalProperties": false,
+      "required": [
+        "targetId",
+        "targetType"
+      ],
       "properties": {
-        "target_id": {
+        "targetId": {
           "type": "string"
         },
-        "target_type": {
+        "targetType": {
           "type": "string",
           "enum": [
             "knowledge",
@@ -74,14 +103,17 @@
             "truth_claim",
             "system_resource",
             "file",
-            "report"
+            "report",
+            "schema",
+            "example",
+            "repository"
           ]
         }
       }
     },
     "action": {
       "type": "string",
-      "description": "Human-readable action performed."
+      "description": "Human-readable description of the action performed."
     },
     "result": {
       "type": "string",
@@ -94,28 +126,117 @@
         "unverified"
       ]
     },
-    "risk_level": {
+    "riskLevel": {
       "type": "string",
-      "enum": ["low", "medium", "high", "critical"]
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
     },
-    "policy_refs": {
+    "policyRefs": {
       "type": "array",
       "items": {
-        "type": "string"
-      }
+        "type": "string",
+        "pattern": "^policy_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
     },
-    "evidence_refs": {
+    "evidenceRefs": {
       "type": "array",
       "items": {
-        "type": "string"
-      }
+        "type": "string",
+        "pattern": "^evidence_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
     },
-    "session_ref": {
-      "type": "string"
+    "knowledgeRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^knowledge_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "agentRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^agent_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "kcpSessionRef": {
+      "type": "string",
+      "pattern": "^kcp_[a-zA-Z0-9_-]+$"
+    },
+    "previousAuditRef": {
+      "type": "string",
+      "pattern": "^audit_[a-zA-Z0-9_-]+$"
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "verificationStatus": {
+          "type": "string",
+          "enum": [
+            "verified",
+            "unverified",
+            "rejected",
+            "deprecated",
+            "superseded"
+          ]
+        },
+        "verificationLevel": {
+          "type": "string",
+          "enum": [
+            "unverified",
+            "preliminary",
+            "reviewed",
+            "verified",
+            "certified",
+            "foundational"
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "consensusScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "evidenceCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "independentAgentCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "policyPassed": {
+          "type": "boolean"
+        }
+      }
     },
     "notes": {
       "type": "string"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
     }
-  },
-  "additionalProperties": false
+  }
 }
