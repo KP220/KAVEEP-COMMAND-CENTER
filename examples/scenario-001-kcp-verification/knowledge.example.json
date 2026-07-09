@@ -1,0 +1,71 @@
+{
+  "knowledgeId": "knowledge_s001_0001",
+  "title": "Verified KAVEEP knowledge requires traceability",
+  "description": "A verified KAVEEP knowledge record must be traceable through Evidence, KCP Session, Event, and Audit records.",
+  "version": "1.0.0",
+  "category": "verified_knowledge",
+  "status": "published",
+  "verificationStatus": "verified",
+  "verificationLevel": "verified",
+  "confidence": 0.94,
+  "summary": "KAVEEP verified knowledge must not exist outside the traceability chain.",
+  "contentRef": "docs/SCHEMA-RELATIONSHIPS.md",
+  "evidenceRefs": [
+    "evidence_s001_0001"
+  ],
+  "kcpSessionId": "kcp_s001_0001",
+  "citation": {
+    "preferredCitation": "KAVEEP Schema Relationships, Version 1.0",
+    "sourceRefs": [
+      "docs/SCHEMA-RELATIONSHIPS.md"
+    ],
+    "citationStyle": "repository"
+  },
+  "lineage": {
+    "origin": "scenario-001-kcp-verification"
+  },
+  "relationships": [],
+  "tags": [
+    "traceability",
+    "audit",
+    "kcp",
+    "verified-knowledge"
+  ],
+  "domains": [
+    "governance",
+    "knowledge",
+    "verification"
+  ],
+  "requiredPolicies": [
+    "policy_kcp_001",
+    "policy_evidence_001"
+  ],
+  "usedByAgentIds": [
+    "agent_reviewer_001",
+    "agent_reviewer_002",
+    "agent_reviewer_003"
+  ],
+  "maintenance": {
+    "maintenanceStatus": "current",
+    "reviewFrequency": "quarterly",
+    "lastReviewedAt": "2026-07-09T15:09:00Z",
+    "nextReviewAt": "2026-10-09T15:09:00Z",
+    "reviewOwner": "agent_librarian_001"
+  },
+  "auditRefs": [
+    "audit_s001_0001"
+  ],
+  "eventRefs": [
+    "event_s001_0001"
+  ],
+  "metadata": {
+    "scenario": "scenario-001-kcp-verification",
+    "schemaVersion": "1.0.0"
+  },
+  "extensions": {},
+  "createdBy": "agent_librarian_001",
+  "updatedBy": "agent_librarian_001",
+  "publishedAt": "2026-07-09T15:09:00Z",
+  "createdAt": "2026-07-09T15:09:00Z",
+  "updatedAt": "2026-07-09T15:09:00Z"
+}
