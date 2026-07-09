@@ -1,0 +1,53 @@
+{
+  "auditId": "audit_s002_0001",
+  "eventType": "kcp_session_completed",
+  "timestamp": "2026-07-09T16:08:00Z",
+  "actor": {
+    "actorId": "agent_kcp_engine",
+    "actorType": "kcp_engine",
+    "actorName": "KAVEEP KCP Engine"
+  },
+  "target": {
+    "targetId": "kcp_s002_0001",
+    "targetType": "kcp_session"
+  },
+  "action": "Completed KCP session with insufficient evidence and preserved the result as unverified.",
+  "result": "unverified",
+  "riskLevel": "moderate",
+  "policyRefs": [
+    "policy_kcp_001",
+    "policy_evidence_001"
+  ],
+  "evidenceRefs": [
+    "evidence_s002_0001"
+  ],
+  "knowledgeRefs": [],
+  "agentRefs": [
+    "agent_reviewer_001",
+    "agent_reviewer_002",
+    "agent_reviewer_003"
+  ],
+  "eventRefs": [
+    "event_s002_0001"
+  ],
+  "kcpSessionRef": "kcp_s002_0001",
+  "correlationId": "kcp_s002_0001",
+  "verification": {
+    "verificationStatus": "unverified",
+    "verificationLevel": "unverified",
+    "confidence": 0.28,
+    "consensusScore": 0.28,
+    "evidenceCount": 1,
+    "independentAgentCount": 3,
+    "policyPassed": true
+  },
+  "notes": "Scenario-002 confirms that insufficient evidence must remain unverified. No knowledge record was published.",
+  "metadata": {
+    "scenario": "scenario-002-insufficient-evidence",
+    "schemaVersion": "1.0.0",
+    "expectedResult": "unverified",
+    "knowledgePublished": false
+  },
+  "extensions": {},
+  "createdAt": "2026-07-09T16:08:00Z"
+}
