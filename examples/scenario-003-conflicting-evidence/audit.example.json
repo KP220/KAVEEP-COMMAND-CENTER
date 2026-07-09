@@ -1,0 +1,57 @@
+{
+  "auditId": "audit_s003_0001",
+  "eventType": "kcp_session_completed",
+  "timestamp": "2026-07-09T17:10:00Z",
+  "actor": {
+    "actorId": "agent_kcp_engine",
+    "actorType": "kcp_engine",
+    "actorName": "KAVEEP KCP Engine"
+  },
+  "target": {
+    "targetId": "kcp_s003_0001",
+    "targetType": "kcp_session"
+  },
+  "action": "Completed KCP conflict analysis. Consensus could not be reached because the available evidence remained contradictory.",
+  "result": "unverified",
+  "riskLevel": "high",
+  "policyRefs": [
+    "policy_kcp_001",
+    "policy_evidence_001"
+  ],
+  "evidenceRefs": [
+    "evidence_s003_a",
+    "evidence_s003_b",
+    "evidence_s003_c",
+    "evidence_s003_d"
+  ],
+  "knowledgeRefs": [],
+  "agentRefs": [
+    "agent_reviewer_001",
+    "agent_reviewer_002",
+    "agent_reviewer_003"
+  ],
+  "eventRefs": [
+    "event_s003_0001"
+  ],
+  "kcpSessionRef": "kcp_s003_0001",
+  "correlationId": "kcp_s003_0001",
+  "verification": {
+    "verificationStatus": "unverified",
+    "verificationLevel": "unverified",
+    "confidence": 0.50,
+    "consensusScore": 0.50,
+    "evidenceCount": 4,
+    "independentAgentCount": 3,
+    "policyPassed": true
+  },
+  "notes": "Conflict analysis completed successfully. No verified knowledge was published because the evidence remained internally contradictory.",
+  "metadata": {
+    "scenario": "scenario-003-conflicting-evidence",
+    "schemaVersion": "1.0.0",
+    "expectedResult": "unverified",
+    "knowledgePublished": false,
+    "conflictDetected": true
+  },
+  "extensions": {},
+  "createdAt": "2026-07-09T17:10:00Z"
+}
