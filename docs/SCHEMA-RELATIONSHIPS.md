@@ -135,25 +135,24 @@ Audit Record
 ↓
 Knowledge Publication
 
-| Entity      | Prefix        |
-| ----------- | ------------- |
-| Agent       | `agent_`      |
-| Approval    | `approval_`   |
-| Audit       | `audit_`      |
-| Capability  | `capability_` |
-| Event       | `event_`      |
-| Evidence    | `evidence_`   |
-| Goal        | `goal_`       |
-| Identity    | `identity_`   |
-| Knowledge   | `knowledge_`  |
-| KCP Session | `kcp_`        |
-| Mission     | `mission_`    |
-| Passport    | `passport_`   |
-| Policy      | `policy_`     |
-| Task        | `task_`       |
-| User        | `user_`       |
-| Workflow    | `workflow_`   |
-
+Canonical ID Prefixes
+Entity	Prefix
+Agent	agent_
+Approval	approval_
+Audit	audit_
+Capability	capability_
+Event	event_
+Evidence	evidence_
+Goal	goal_
+Identity	identity_
+Knowledge	knowledge_
+KCP Session	kcp_
+Mission	mission_
+Passport	passport_
+Policy	policy_
+Task	task_
+User	user_
+Workflow	workflow_
 Risk Levels
 
 The canonical risk levels are:
@@ -198,4 +197,3 @@ Risk levels are consistent across schemas.
 Entity IDs follow canonical prefixes.
 Insufficient evidence results in unverified.
 No important entity exists outside traceability.
-
