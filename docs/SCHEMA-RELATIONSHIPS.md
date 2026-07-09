@@ -33,6 +33,7 @@ Evidence
 KCP
 ↓
 Knowledge
+```
 
 Mission
 ├── goals → Goal
