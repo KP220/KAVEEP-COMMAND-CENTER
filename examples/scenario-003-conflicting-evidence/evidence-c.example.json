@@ -1,0 +1,46 @@
+{
+  "evidenceId": "evidence_s003_c",
+  "title": "Supporting evidence C",
+  "description": "This second supporting evidence also supports the claim under review.",
+  "evidenceType": "document",
+  "source": {
+    "sourceType": "repository",
+    "sourceRef": "examples/scenario-003-conflicting-evidence/source-c.md",
+    "sourceName": "Scenario 003 Source C",
+    "sourceVersion": "1.0",
+    "retrievedAt": "2026-07-09T17:02:00Z"
+  },
+  "citation": {
+    "preferredCitation": "Scenario 003 Source C",
+    "citationStyle": "repository",
+    "locator": "supporting-claim",
+    "license": "MIT"
+  },
+  "verificationStatus": "unverified",
+  "reliability": "moderate",
+  "independenceScore": 0.79,
+  "confidence": 0.71,
+  "knowledgeRefs": [],
+  "kcpSessionRefs": [
+    "kcp_s003_0001"
+  ],
+  "submittedByAgentId": "agent_reviewer_003",
+  "contentRef": "examples/scenario-003-conflicting-evidence/source-c.md",
+  "auditRefs": [
+    "audit_s003_0001"
+  ],
+  "eventRefs": [
+    "event_s003_0001"
+  ],
+  "metadata": {
+    "scenario": "scenario-003-conflicting-evidence",
+    "claimId": "claim_s003_0001",
+    "claimPosition": "supports",
+    "conflictGroup": "claim_s003_0001",
+    "schemaVersion": "1.0.0"
+  },
+  "extensions": {},
+  "collectedAt": "2026-07-09T17:02:00Z",
+  "createdAt": "2026-07-09T17:02:00Z",
+  "updatedAt": "2026-07-09T17:02:00Z"
+}
