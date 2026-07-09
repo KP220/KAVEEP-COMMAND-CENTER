@@ -8,12 +8,12 @@
     "actorName": "KAVEEP KCP Engine"
   },
   "target": {
-    "targetId": "kcp_session_0001",
+    "targetId": "kcp_0001",
     "targetType": "kcp_session"
   },
   "action": "Completed KCP verification session and issued verification result.",
   "result": "success",
-"riskLevel": "moderate",
+  "riskLevel": "moderate",
   "policyRefs": [
     "policy_kcp_001",
     "policy_evidence_001"
@@ -31,8 +31,12 @@
     "agent_reviewer_002",
     "agent_reviewer_003"
   ],
-  "kcpSessionRef": "kcp_session_0001",
+  "eventRefs": [
+    "event_20260709_0001"
+  ],
+  "kcpSessionRef": "kcp_0001",
   "previousAuditRef": "audit_20260709_0000",
+  "correlationId": "kcp_0001",
   "verification": {
     "verificationStatus": "verified",
     "verificationLevel": "verified",
@@ -44,7 +48,7 @@
   },
   "notes": "Consensus reached after independent evaluation by multiple agents. Verification result issued as verified.",
   "metadata": {
-    "schemaVersion": "0.1.0",
+    "schemaVersion": "1.0.0",
     "environment": "development"
   },
   "extensions": {},
