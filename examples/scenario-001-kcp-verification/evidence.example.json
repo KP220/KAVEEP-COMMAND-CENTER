@@ -1,0 +1,45 @@
+{
+  "evidenceId": "evidence_s001_0001",
+  "title": "KAVEEP requires audit traceability for verified knowledge",
+  "description": "Evidence showing that verified KAVEEP knowledge must be traceable through KCP, Event, and Audit records.",
+  "evidenceType": "document",
+  "source": {
+    "sourceType": "repository",
+    "sourceRef": "docs/SCHEMA-RELATIONSHIPS.md",
+    "sourceName": "KAVEEP Schema Relationships",
+    "sourceVersion": "1.0",
+    "retrievedAt": "2026-07-09T15:00:00Z"
+  },
+  "citation": {
+    "preferredCitation": "KAVEEP Schema Relationships, Version 1.0",
+    "citationStyle": "repository",
+    "locator": "Governance Rules",
+    "license": "MIT"
+  },
+  "verificationStatus": "verified",
+  "reliability": "authoritative",
+  "independenceScore": 1,
+  "confidence": 0.95,
+  "knowledgeRefs": [
+    "knowledge_s001_0001"
+  ],
+  "kcpSessionRefs": [
+    "kcp_s001_0001"
+  ],
+  "submittedByAgentId": "agent_reviewer_001",
+  "contentRef": "docs/SCHEMA-RELATIONSHIPS.md",
+  "auditRefs": [
+    "audit_s001_0001"
+  ],
+  "eventRefs": [
+    "event_s001_0001"
+  ],
+  "metadata": {
+    "scenario": "scenario-001-kcp-verification",
+    "schemaVersion": "1.0.0"
+  },
+  "extensions": {},
+  "collectedAt": "2026-07-09T15:00:00Z",
+  "createdAt": "2026-07-09T15:00:00Z",
+  "updatedAt": "2026-07-09T15:00:00Z"
+}
