@@ -1,39 +1,52 @@
 {
-  "audit_id": "AUD-20260709-0001",
-  "event_type": "kcp_session_completed",
+  "auditId": "audit_20260709_0001",
+  "eventType": "kcp_session_completed",
   "timestamp": "2026-07-09T14:30:00Z",
-
   "actor": {
-    "actor_id": "AGENT-KCP-ENGINE",
-    "actor_type": "kcp_engine",
-    "actor_name": "KAVEEP KCP Engine"
+    "actorId": "agent_kcp_engine",
+    "actorType": "kcp_engine",
+    "actorName": "KAVEEP KCP Engine"
   },
-
   "target": {
-    "target_id": "KCP-SESSION-0001",
-    "target_type": "kcp_session"
+    "targetId": "kcp_session_0001",
+    "targetType": "kcp_session"
   },
-
   "action": "Completed KCP verification session and issued verification result.",
-
   "result": "success",
-
-  "risk_level": "medium",
-
-  "policy_refs": [
-    "POLICY-KCP-001",
-    "POLICY-EVIDENCE-001"
+  "riskLevel": "medium",
+  "policyRefs": [
+    "policy_kcp_001",
+    "policy_evidence_001"
   ],
-
-  "evidence_refs": [
-    "EVID-000045",
-    "EVID-000112",
-    "EVID-000205"
+  "evidenceRefs": [
+    "evidence_000045",
+    "evidence_000112",
+    "evidence_000205"
   ],
-
-  "session_ref": "KCP-SESSION-0001",
-
-  "previous_audit_ref": "AUD-20260709-0000",
-
-  "notes": "Consensus reached after independent evaluation by multiple agents. Verification result issued as VERIFIED."
+  "knowledgeRefs": [
+    "knowledge_000001"
+  ],
+  "agentRefs": [
+    "agent_reviewer_001",
+    "agent_reviewer_002",
+    "agent_reviewer_003"
+  ],
+  "kcpSessionRef": "kcp_session_0001",
+  "previousAuditRef": "audit_20260709_0000",
+  "verification": {
+    "verificationStatus": "verified",
+    "verificationLevel": "verified",
+    "confidence": 0.94,
+    "consensusScore": 0.91,
+    "evidenceCount": 3,
+    "independentAgentCount": 3,
+    "policyPassed": true
+  },
+  "notes": "Consensus reached after independent evaluation by multiple agents. Verification result issued as verified.",
+  "metadata": {
+    "schemaVersion": "0.1.0",
+    "environment": "development"
+  },
+  "extensions": {},
+  "createdAt": "2026-07-09T14:30:00Z"
 }
