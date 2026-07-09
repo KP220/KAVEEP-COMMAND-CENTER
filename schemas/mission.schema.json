@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kaveep.dev/schemas/mission.schema.json",
+  "title": "KAVEEP Mission",
+  "description": "Canonical schema for the highest operational abstraction in KAVEEP.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "missionId",
+    "name",
+    "purpose",
+    "owner",
+    "status",
+    "priority",
+    "riskLevel",
+    "goals",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "missionId": {
+      "type": "string",
+      "pattern": "^mission_[a-zA-Z0-9_-]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owner": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "planning",
+        "validation",
+        "approval",
+        "executing",
+        "monitoring",
+        "adapting",
+        "completed",
+        "cancelled",
+        "failed",
+        "archived"
+      ]
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "emergency",
+        "critical",
+        "high",
+        "normal",
+        "low",
+        "background"
+      ]
+    },
+    "riskLevel": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "critical"
+      ]
+    },
+    "goals": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^goal_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "workflows": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^workflow_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "requiredPolicies": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^policy_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "requiredKnowledge": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^knowledge_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "requiredCapabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^capability_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "requiredApprovals": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^approval_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "assignedAgents": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^agent_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "currency": {
+          "type": "string"
+        },
+        "maximumAmount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currentAmount": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "kpis": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "target"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "current": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "not_started",
+              "on_track",
+              "at_risk",
+              "missed",
+              "achieved"
+            ]
+          }
+        }
+      }
+    },
+    "successCriteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "deadline": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "auditRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^audit_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
