@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kaveep.local/schemas/audit.schema.json",
+  "title": "KAVEEP Audit Event",
+  "type": "object",
+  "required": [
+    "audit_id",
+    "event_type",
+    "timestamp",
+    "actor",
+    "target",
+    "action",
+    "result",
+    "risk_level"
+  ],
+  "properties": {
+    "audit_id": {
+      "type": "string",
+      "description": "Unique identifier for this audit event."
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "knowledge_created",
+        "knowledge_updated",
+        "evidence_attached",
+        "agent_evaluation",
+        "policy_check",
+        "kcp_session_started",
+        "kcp_session_completed",
+        "truth_result_issued",
+        "approval_requested",
+        "approval_granted",
+        "approval_denied",
+        "system_warning",
+        "simulation_executed"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "actor": {
+      "type": "object",
+      "required": ["actor_id", "actor_type"],
+      "properties": {
+        "actor_id": {
+          "type": "string"
+        },
+        "actor_type": {
+          "type": "string",
+          "enum": ["human", "agent", "system", "policy_engine", "kcp_engine"]
+        },
+        "actor_name": {
+          "type": "string"
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "required": ["target_id", "target_type"],
+      "properties": {
+        "target_id": {
+          "type": "string"
+        },
+        "target_type": {
+          "type": "string",
+          "enum": [
+            "knowledge",
+            "evidence",
+            "agent",
+            "policy",
+            "kcp_session",
+            "truth_claim",
+            "system_resource",
+            "file",
+            "report"
+          ]
+        }
+      }
+    },
+    "action": {
+      "type": "string",
+      "description": "Human-readable action performed."
+    },
+    "result": {
+      "type": "string",
+      "enum": [
+        "success",
+        "failed",
+        "blocked",
+        "pending",
+        "requires_approval",
+        "unverified"
+      ]
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "policy_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "session_ref": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
