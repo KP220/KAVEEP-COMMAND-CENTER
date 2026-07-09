@@ -1,0 +1,78 @@
+{
+  "kcpSessionId": "kcp_s001_0001",
+  "question": "Should this knowledge be accepted into the KAVEEP Knowledge Repository?",
+  "context": "Scenario-001 demonstrates a successful KCP verification process using verified evidence from an authoritative repository.",
+  "status": "published",
+  "verificationResult": "verified",
+  "verificationLevel": "verified",
+  "confidence": 0.94,
+  "evidenceRefs": [
+    "evidence_s001_0001"
+  ],
+  "knowledgeRefs": [
+    "knowledge_s001_0001"
+  ],
+  "policyRefs": [
+    "policy_kcp_001",
+    "policy_evidence_001"
+  ],
+  "missionId": "mission_knowledge_validation",
+  "taskId": "task_verify_knowledge",
+  "participantAgentIds": [
+    "agent_reviewer_001",
+    "agent_reviewer_002",
+    "agent_reviewer_003"
+  ],
+  "participantSummaries": [
+    {
+      "agentId": "agent_reviewer_001",
+      "recommendation": "verified",
+      "confidence": 0.96,
+      "reasoningSummary": "Evidence is authoritative and policy compliant.",
+      "evidenceUsed": [
+        "evidence_s001_0001"
+      ]
+    },
+    {
+      "agentId": "agent_reviewer_002",
+      "recommendation": "verified",
+      "confidence": 0.94,
+      "reasoningSummary": "No conflicts detected.",
+      "evidenceUsed": [
+        "evidence_s001_0001"
+      ]
+    },
+    {
+      "agentId": "agent_reviewer_003",
+      "recommendation": "verified",
+      "confidence": 0.92,
+      "reasoningSummary": "Independent review agrees with previous evaluations.",
+      "evidenceUsed": [
+        "evidence_s001_0001"
+      ]
+    }
+  ],
+  "conflicts": [],
+  "decision": {
+    "summary": "Consensus reached.",
+    "reason": "Independent agents converged on the same conclusion.",
+    "limitations": "Future evidence may supersede this result.",
+    "publishedKnowledgeId": "knowledge_s001_0001"
+  },
+  "auditRefs": [
+    "audit_s001_0001"
+  ],
+  "eventRefs": [
+    "event_s001_0001"
+  ],
+  "metadata": {
+    "scenario": "scenario-001-kcp-verification",
+    "schemaVersion": "1.0.0"
+  },
+  "extensions": {},
+  "startedAt": "2026-07-09T15:05:00Z",
+  "completedAt": "2026-07-09T15:08:00Z",
+  "publishedAt": "2026-07-09T15:09:00Z",
+  "createdAt": "2026-07-09T15:05:00Z",
+  "updatedAt": "2026-07-09T15:09:00Z"
+}
