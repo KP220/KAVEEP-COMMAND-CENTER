@@ -1,0 +1,46 @@
+{
+  "evidenceId": "evidence_000045",
+  "title": "KCP audit schema alignment note",
+  "description": "Evidence record showing that audit schema references must align with KAVEEP canonical camelCase and ID conventions.",
+  "evidenceType": "document",
+  "source": {
+    "sourceType": "repository",
+    "sourceRef": "KP220/KAVEEP-COMMAND-CENTER",
+    "sourceName": "KAVEEP Command Center Repository",
+    "sourceVersion": "main",
+    "retrievedAt": "2026-07-09T14:20:00Z"
+  },
+  "citation": {
+    "preferredCitation": "KAVEEP Command Center repository schema review",
+    "citationStyle": "internal",
+    "locator": "schemas/audit.schema.json",
+    "license": "project-internal"
+  },
+  "verificationStatus": "verified",
+  "reliability": "high",
+  "independenceScore": 0.85,
+  "confidence": 0.9,
+  "knowledgeRefs": [
+    "knowledge_000001"
+  ],
+  "kcpSessionRefs": [
+    "kcp_session_0001"
+  ],
+  "submittedByAgentId": "agent_kcp_engine",
+  "contentHash": "sha256:example-placeholder",
+  "contentRef": "schemas/audit.schema.json",
+  "auditRefs": [
+    "audit_20260709_0001"
+  ],
+  "eventRefs": [
+    "event_schema_review_0001"
+  ],
+  "metadata": {
+    "schemaVersion": "0.1.0",
+    "note": "Placeholder hash should be replaced by real file hash in production."
+  },
+  "extensions": {},
+  "collectedAt": "2026-07-09T14:20:00Z",
+  "createdAt": "2026-07-09T14:25:00Z",
+  "updatedAt": "2026-07-09T14:25:00Z"
+}
