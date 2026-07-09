@@ -126,15 +126,15 @@
         "unverified"
       ]
     },
-    "riskLevel": {
-      "type": "string",
-      "enum": [
-        "low",
-        "medium",
-        "high",
-        "critical"
-      ]
-    },
+  "riskLevel": {
+  "type": "string",
+  "enum": [
+    "low",
+    "moderate",
+    "high",
+    "critical"
+  ]
+},
     "policyRefs": {
       "type": "array",
       "items": {
