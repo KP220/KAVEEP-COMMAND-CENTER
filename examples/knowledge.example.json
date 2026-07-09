@@ -1,0 +1,83 @@
+{
+  "knowledgeId": "knowledge_000001",
+  "title": "KAVEEP audit schema must use canonical references",
+  "description": "A verified knowledge record stating that audit events must use canonical KAVEEP naming and ID reference conventions.",
+  "version": "0.1.0",
+  "category": "verified_knowledge",
+  "status": "verified",
+  "verificationStatus": "verified",
+  "verificationLevel": "verified",
+  "confidence": 0.94,
+  "summary": "Audit events are core traceability records and must use camelCase fields and canonical entity ID formats such as audit_*, evidence_*, kcp_*, knowledge_*, policy_*, and agent_*.",
+  "contentRef": "docs/knowledge/audit-schema-conventions.md",
+  "evidenceRefs": [
+    "evidence_000045",
+    "evidence_000112",
+    "evidence_000205"
+  ],
+  "kcpSessionId": "kcp_session_0001",
+  "citation": {
+    "preferredCitation": "KAVEEP Command Center audit schema alignment",
+    "sourceRefs": [
+      "schemas/audit.schema.json",
+      "examples/audit.example.json"
+    ],
+    "citationStyle": "internal"
+  },
+  "lineage": {
+    "origin": "KCP schema review",
+    "parentKnowledgeIds": [],
+    "derivedKnowledgeIds": [],
+    "supersedesKnowledgeId": "knowledge_audit_schema_draft"
+  },
+  "relationships": [
+    {
+      "relationshipType": "depends_on",
+      "targetKnowledgeId": "knowledge_kcp_core_principles",
+      "description": "Audit conventions depend on KCP traceability and verification rules."
+    }
+  ],
+  "tags": [
+    "audit",
+    "schema",
+    "traceability",
+    "kcp",
+    "verification"
+  ],
+  "domains": [
+    "KAVEEP-COMMAND-CENTER",
+    "KAVEEP-KNOWLEDGE",
+    "KAVEEP-KCP"
+  ],
+  "requiredPolicies": [
+    "policy_kcp_001",
+    "policy_evidence_001"
+  ],
+  "usedByAgentIds": [
+    "agent_kcp_engine",
+    "agent_audit_engine",
+    "agent_librarian"
+  ],
+  "maintenance": {
+    "maintenanceStatus": "current",
+    "reviewFrequency": "monthly",
+    "lastReviewedAt": "2026-07-09T14:30:00Z",
+    "nextReviewAt": "2026-08-09T14:30:00Z",
+    "reviewOwner": "agent_librarian"
+  },
+  "auditRefs": [
+    "audit_20260709_0001"
+  ],
+  "eventRefs": [
+    "event_schema_review_0001"
+  ],
+  "metadata": {
+    "schemaVersion": "0.1.0"
+  },
+  "extensions": {},
+  "createdBy": "agent_librarian",
+  "updatedBy": "agent_librarian",
+  "publishedAt": "2026-07-09T14:35:00Z",
+  "createdAt": "2026-07-09T14:30:00Z",
+  "updatedAt": "2026-07-09T14:35:00Z"
+}
