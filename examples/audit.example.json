@@ -1,0 +1,39 @@
+{
+  "audit_id": "AUD-20260709-0001",
+  "event_type": "kcp_session_completed",
+  "timestamp": "2026-07-09T14:30:00Z",
+
+  "actor": {
+    "actor_id": "AGENT-KCP-ENGINE",
+    "actor_type": "kcp_engine",
+    "actor_name": "KAVEEP KCP Engine"
+  },
+
+  "target": {
+    "target_id": "KCP-SESSION-0001",
+    "target_type": "kcp_session"
+  },
+
+  "action": "Completed KCP verification session and issued verification result.",
+
+  "result": "success",
+
+  "risk_level": "medium",
+
+  "policy_refs": [
+    "POLICY-KCP-001",
+    "POLICY-EVIDENCE-001"
+  ],
+
+  "evidence_refs": [
+    "EVID-000045",
+    "EVID-000112",
+    "EVID-000205"
+  ],
+
+  "session_ref": "KCP-SESSION-0001",
+
+  "previous_audit_ref": "AUD-20260709-0000",
+
+  "notes": "Consensus reached after independent evaluation by multiple agents. Verification result issued as VERIFIED."
+}
