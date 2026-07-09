@@ -1,0 +1,107 @@
+{
+  "kcpSessionId": "kcp_s003_0001",
+  "question": "Should this conflicting claim be accepted into the KAVEEP Knowledge Repository?",
+  "context": "Scenario-003 demonstrates that conflicting evidence must trigger conflict analysis. Two evidence records support the claim and two evidence records contradict it.",
+  "status": "conflict_detected",
+  "verificationResult": "unverified",
+  "verificationLevel": "unverified",
+  "confidence": 0.5,
+  "evidenceRefs": [
+    "evidence_s003_a",
+    "evidence_s003_b",
+    "evidence_s003_c",
+    "evidence_s003_d"
+  ],
+  "knowledgeRefs": [],
+  "policyRefs": [
+    "policy_kcp_001",
+    "policy_evidence_001"
+  ],
+  "missionId": "mission_knowledge_validation",
+  "taskId": "task_verify_knowledge",
+  "participantAgentIds": [
+    "agent_reviewer_001",
+    "agent_reviewer_002",
+    "agent_reviewer_003"
+  ],
+  "participantSummaries": [
+    {
+      "agentId": "agent_reviewer_001",
+      "recommendation": "unverified",
+      "confidence": 0.52,
+      "reasoningSummary": "Supporting and contradicting evidence are balanced. Consensus cannot be reached.",
+      "evidenceUsed": [
+        "evidence_s003_a",
+        "evidence_s003_b",
+        "evidence_s003_c",
+        "evidence_s003_d"
+      ]
+    },
+    {
+      "agentId": "agent_reviewer_002",
+      "recommendation": "unverified",
+      "confidence": 0.48,
+      "reasoningSummary": "Contradicting sources prevent safe verification.",
+      "evidenceUsed": [
+        "evidence_s003_a",
+        "evidence_s003_b",
+        "evidence_s003_c",
+        "evidence_s003_d"
+      ]
+    },
+    {
+      "agentId": "agent_reviewer_003",
+      "recommendation": "unverified",
+      "confidence": 0.5,
+      "reasoningSummary": "Conflict analysis found unresolved contradictions.",
+      "evidenceUsed": [
+        "evidence_s003_a",
+        "evidence_s003_b",
+        "evidence_s003_c",
+        "evidence_s003_d"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "conflictType": "evidence_conflict",
+      "description": "Two evidence records support the claim while two evidence records contradict it.",
+      "relatedEvidenceRefs": [
+        "evidence_s003_a",
+        "evidence_s003_b",
+        "evidence_s003_c",
+        "evidence_s003_d"
+      ],
+      "resolutionStatus": "requires_more_evidence"
+    }
+  ],
+  "decision": {
+    "summary": "Consensus not reached.",
+    "reason": "Evidence is sufficient in quantity but contradictory in conclusion.",
+    "limitations": "The claim must remain unverified until additional independent evidence resolves the conflict."
+  },
+  "auditRefs": [
+    "audit_s003_0001"
+  ],
+  "eventRefs": [
+    "event_s003_0001"
+  ],
+  "metadata": {
+    "scenario": "scenario-003-conflicting-evidence",
+    "schemaVersion": "1.0.0",
+    "expectedResult": "unverified",
+    "knowledgePublished": false,
+    "conflictAnalysis": {
+      "status": "unresolved",
+      "supportingEvidenceCount": 2,
+      "contradictingEvidenceCount": 2,
+      "resolutionRequired": true,
+      "recommendedAction": "Collect additional independent evidence."
+    }
+  },
+  "extensions": {},
+  "startedAt": "2026-07-09T17:05:00Z",
+  "completedAt": "2026-07-09T17:10:00Z",
+  "createdAt": "2026-07-09T17:05:00Z",
+  "updatedAt": "2026-07-09T17:10:00Z"
+}
