@@ -1,0 +1,28 @@
+{
+  "evidenceId": "evidence_s002_0001",
+  "title": "Single unconfirmed evidence",
+  "description": "Only one weak source is available. Independent corroboration is missing.",
+  "evidenceType": "web_article",
+  "verificationStatus": "unverified",
+  "reliability": "low",
+  "independenceScore": 0.20,
+  "confidence": 0.28,
+  "knowledgeRefs": [],
+  "kcpSessionRefs": [
+    "kcp_s002_0001"
+  ],
+  "submittedByAgentId": "agent_reviewer_001",
+  "auditRefs": [
+    "audit_s002_0001"
+  ],
+  "eventRefs": [
+    "event_s002_0001"
+  ],
+  "metadata": {
+    "scenario": "scenario-002-insufficient-evidence",
+    "schemaVersion": "1.0.0"
+  },
+  "extensions": {},
+  "createdAt": "2026-07-09T16:00:00Z",
+  "updatedAt": "2026-07-09T16:00:00Z"
+}
