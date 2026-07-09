@@ -33,7 +33,7 @@
     },
     {
       "agentId": "agent_reviewer_002",
-      "recommendation": "needs_more_evidence",
+      "recommendation": "unverified",
       "confidence": 0.25,
       "reasoningSummary": "The claim cannot be verified without additional independent evidence.",
       "evidenceUsed": [
