@@ -23,5 +23,10 @@ Scenario examples are used as:
 
 Use this pattern:
 
-```text
-examples/scenario-XXX-short-description/
+```
+
+examples/scenario-001-kcp-verification/
+examples/scenario-002-insufficient-evidence/
+examples/scenario-003-conflicting-evidence/
+examples/scenario-004-policy-block/
+examples/scenario-005-human-approval-required/
