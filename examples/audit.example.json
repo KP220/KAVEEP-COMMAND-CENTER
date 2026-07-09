@@ -13,7 +13,7 @@
   },
   "action": "Completed KCP verification session and issued verification result.",
   "result": "success",
-  "riskLevel": "medium",
+"riskLevel": "moderate"
   "policyRefs": [
     "policy_kcp_001",
     "policy_evidence_001"
