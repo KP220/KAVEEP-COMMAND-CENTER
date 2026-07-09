@@ -35,6 +35,11 @@ KCP
 Knowledge
 ```
 
+## Entity Relationships
+
+### Mission
+
+```text
 Mission
 ├── goals → Goal
 ├── workflows → Workflow
@@ -42,7 +47,11 @@ Mission
 ├── requiredPolicies → Policy
 ├── requiredKnowledge → Knowledge
 └── auditRefs → Audit
+```
 
+### Workflow
+
+```text
 Workflow
 ├── missionId → Mission
 ├── goalId → Goal
@@ -53,7 +62,11 @@ Workflow
 ├── approvalIds → Approval
 ├── auditRefs → Audit
 └── eventRefs → Event
+```
 
+### Task
+
+```text
 Task
 ├── missionId → Mission
 ├── workflowId → Workflow
@@ -65,13 +78,21 @@ Task
 ├── dependencies → Task
 ├── auditRefs → Audit
 └── eventRefs → Event
+```
 
+### Agent
+
+```text
 Agent
 ├── passportId → Passport
 ├── identityId → Identity
 ├── capabilities → Capability
 └── auditRefs → Audit
+```
 
+### Knowledge
+
+```text
 Knowledge
 ├── evidenceRefs → Evidence
 ├── kcpSessionId → KCP Session
@@ -79,7 +100,11 @@ Knowledge
 ├── usedByAgentIds → Agent
 ├── auditRefs → Audit
 └── eventRefs → Event
+```
 
+### Evidence
+
+```text
 Evidence
 ├── knowledgeRefs → Knowledge
 ├── kcpSessionRefs → KCP Session
@@ -87,7 +112,11 @@ Evidence
 ├── submittedByUserId → User
 ├── auditRefs → Audit
 └── eventRefs → Event
+```
 
+### KCP Session
+
+```text
 KCP Session
 ├── evidenceRefs → Evidence
 ├── knowledgeRefs → Knowledge
@@ -97,7 +126,11 @@ KCP Session
 ├── participantAgentIds → Agent
 ├── auditRefs → Audit
 └── eventRefs → Event
+```
 
+### Audit
+
+```text
 Audit
 ├── target → Any Entity
 ├── policyRefs → Policy
@@ -107,13 +140,21 @@ Audit
 ├── eventRefs → Event
 ├── kcpSessionRef → KCP Session
 └── previousAuditRef → Audit
+```
 
+### Event
+
+```text
 Event
 ├── relatedEntityId → Any Entity
 ├── relatedEntityType → Entity Type
 ├── correlationId → Mission / Workflow / Task / Audit / KCP Chain
 └── auditRef → Audit
+```
 
+## KCP Verification Flow
+
+```text
 Knowledge Claim
 ↓
 Evidence Collection
@@ -135,66 +176,58 @@ Verification Result
 Audit Record
 ↓
 Knowledge Publication
+```
 
-Canonical ID Prefixes
-Entity	Prefix
-Agent	agent_
-Approval	approval_
-Audit	audit_
-Capability	capability_
-Event	event_
-Evidence	evidence_
-Goal	goal_
-Identity	identity_
-Knowledge	knowledge_
-KCP Session	kcp_
-Mission	mission_
-Passport	passport_
-Policy	policy_
-Task	task_
-User	user_
-Workflow	workflow_
-Risk Levels
+## Canonical ID Prefixes
 
-The canonical risk levels are:
+| Entity | Prefix |
+|--------|--------|
+| Agent | `agent_` |
+| Approval | `approval_` |
+| Audit | `audit_` |
+| Capability | `capability_` |
+| Event | `event_` |
+| Evidence | `evidence_` |
+| Goal | `goal_` |
+| Identity | `identity_` |
+| Knowledge | `knowledge_` |
+| KCP Session | `kcp_` |
+| Mission | `mission_` |
+| Passport | `passport_` |
+| Policy | `policy_` |
+| Task | `task_` |
+| User | `user_` |
+| Workflow | `workflow_` |
 
+## Risk Levels
+
+```text
 low
 moderate
 high
 critical
+```
 
-All schemas that define risk must use these values exactly.
+## Governance Rules
 
-Governance Rules
+- Execution requires Policy.
+- Policy requires Audit.
+- Knowledge requires Evidence.
+- Verified Knowledge requires KCP.
+- KCP requires Evidence, Agent Review, Conflict Analysis, and Policy.
+- High-risk execution requires Human Approval.
+- Insufficient evidence must result in `unverified`.
+- Insufficient evidence must never automatically result in `verified`.
+- Insufficient evidence must never automatically result in `rejected`.
 
-Execution requires Policy.
+## Acceptance Criteria
 
-Policy requires Audit.
-
-Knowledge requires Evidence.
-
-Verified Knowledge requires KCP.
-
-KCP requires Evidence, Agent Review, Conflict Analysis, and Policy.
-
-High-risk execution requires Human Approval.
-
-Insufficient evidence must result in unverified.
-
-Insufficient evidence must never automatically result in verified.
-
-Insufficient evidence must never automatically result in rejected.
-
-Acceptance Criteria
-
-This relationship model is valid when:
-
-Every major schema can reference Audit.
-Knowledge references Evidence and KCP Session.
-Evidence links back to Knowledge and KCP Session.
-KCP Session references Evidence, Policy, Agents, and Audit.
-Events can be correlated with Audit.
-Risk levels are consistent across schemas.
-Entity IDs follow canonical prefixes.
-Insufficient evidence results in unverified.
-No important entity exists outside traceability.
+- Every major schema can reference Audit.
+- Knowledge references Evidence and KCP Session.
+- Evidence links back to Knowledge and KCP Session.
+- KCP Session references Evidence, Policy, Agents, and Audit.
+- Events can be correlated with Audit.
+- Risk levels are consistent across schemas.
+- Entity IDs follow canonical prefixes.
+- Insufficient evidence results in `unverified`.
+- No important entity exists outside traceability.
