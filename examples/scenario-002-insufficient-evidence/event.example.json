@@ -1,0 +1,29 @@
+{
+  "eventId": "event_s002_0001",
+  "eventType": "kcp.session.completed",
+  "eventVersion": "1.0.0",
+  "timestamp": "2026-07-09T16:08:00Z",
+  "publisher": "agent_kcp_engine",
+  "correlationId": "kcp_s002_0001",
+  "relatedEntityId": "kcp_s002_0001",
+  "relatedEntityType": "kcp_session",
+  "priority": "normal",
+  "category": "kcp",
+  "securityClassification": "internal",
+  "payloadRef": "payload_event_s002_0001",
+  "auditRef": "audit_s002_0001",
+  "delivery": {
+    "status": "published",
+    "subscriberCount": 4,
+    "deliveredCount": 4,
+    "failedCount": 0
+  },
+  "metadata": {
+    "scenario": "scenario-002-insufficient-evidence",
+    "schemaVersion": "1.0.0",
+    "verificationResult": "unverified",
+    "knowledgePublished": false
+  },
+  "extensions": {},
+  "createdAt": "2026-07-09T16:08:00Z"
+}
