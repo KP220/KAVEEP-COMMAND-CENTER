@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://kaveep.dev/schemas/audit.schema.json",
   "title": "KAVEEP Audit Event",
-  "description": "Canonical audit event schema for traceability across KAVEEP entities, KCP sessions, evidence, policy checks, agents, and verification results.",
+  "description": "Canonical audit event schema for immutable traceability across all KAVEEP entities, policies, agents, KCP sessions, evidence, events, approvals, and system operations.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -19,27 +19,39 @@
   "properties": {
     "auditId": {
       "type": "string",
-      "pattern": "^audit_[a-zA-Z0-9_-]+$",
-      "description": "Stable unique identifier for this audit event."
+      "pattern": "^audit_[a-zA-Z0-9_-]+$"
     },
     "eventType": {
       "type": "string",
       "enum": [
+        "mission_created",
+        "mission_updated",
+        "workflow_created",
+        "workflow_updated",
+        "task_created",
+        "task_updated",
+        "task_completed",
+        "agent_registered",
+        "agent_updated",
+        "policy_check_started",
+        "policy_check_completed",
+        "security_check_started",
+        "security_check_completed",
+        "kcp_session_started",
+        "kcp_session_completed",
         "knowledge_created",
         "knowledge_updated",
         "knowledge_deprecated",
         "evidence_attached",
         "evidence_removed",
-        "agent_evaluation_started",
-        "agent_evaluation_completed",
-        "policy_check_started",
-        "policy_check_completed",
-        "kcp_session_started",
-        "kcp_session_completed",
         "truth_result_issued",
         "approval_requested",
         "approval_granted",
         "approval_denied",
+        "event_published",
+        "plugin_installed",
+        "plugin_updated",
+        "api_call_executed",
         "system_warning",
         "simulation_executed",
         "execution_blocked",
@@ -68,12 +80,16 @@
           "type": "string",
           "enum": [
             "human",
+            "user",
             "agent",
             "system",
             "policy_engine",
+            "security_engine",
             "kcp_engine",
             "audit_engine",
-            "schema_engine"
+            "schema_engine",
+            "plugin_engine",
+            "api_gateway"
           ]
         },
         "actorName": {
@@ -95,12 +111,27 @@
         "targetType": {
           "type": "string",
           "enum": [
+            "mission",
+            "goal",
+            "workflow",
+            "task",
+            "agent",
+            "capability",
+            "passport",
+            "identity",
+            "user",
+            "approval",
+            "policy",
+            "policy_check",
+            "security_check",
             "knowledge",
             "evidence",
-            "agent",
-            "policy",
             "kcp_session",
             "truth_claim",
+            "audit",
+            "event",
+            "plugin",
+            "api_call",
             "system_resource",
             "file",
             "report",
@@ -113,7 +144,7 @@
     },
     "action": {
       "type": "string",
-      "description": "Human-readable description of the action performed."
+      "minLength": 1
     },
     "result": {
       "type": "string",
@@ -126,15 +157,15 @@
         "unverified"
       ]
     },
-  "riskLevel": {
-  "type": "string",
-  "enum": [
-    "low",
-    "moderate",
-    "high",
-    "critical"
-  ]
-},
+    "riskLevel": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "critical"
+      ]
+    },
     "policyRefs": {
       "type": "array",
       "items": {
@@ -167,6 +198,14 @@
       },
       "uniqueItems": true
     },
+    "eventRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^event_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
     "kcpSessionRef": {
       "type": "string",
       "pattern": "^kcp_[a-zA-Z0-9_-]+$"
@@ -174,6 +213,10 @@
     "previousAuditRef": {
       "type": "string",
       "pattern": "^audit_[a-zA-Z0-9_-]+$"
+    },
+    "correlationId": {
+      "type": "string",
+      "description": "Shared correlation identifier connecting mission, workflow, task, event, audit, or KCP chains."
     },
     "verification": {
       "type": "object",
