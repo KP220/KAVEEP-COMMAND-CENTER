@@ -1,0 +1,46 @@
+{
+  "evidenceId": "evidence_s003_b",
+  "title": "Contradicting evidence B",
+  "description": "This evidence contradicts the claim under review.",
+  "evidenceType": "document",
+  "source": {
+    "sourceType": "repository",
+    "sourceRef": "examples/scenario-003-conflicting-evidence/source-b.md",
+    "sourceName": "Scenario 003 Source B",
+    "sourceVersion": "1.0",
+    "retrievedAt": "2026-07-09T17:01:00Z"
+  },
+  "citation": {
+    "preferredCitation": "Scenario 003 Source B",
+    "citationStyle": "repository",
+    "locator": "contradicting-claim",
+    "license": "MIT"
+  },
+  "verificationStatus": "unverified",
+  "reliability": "moderate",
+  "independenceScore": 0.82,
+  "confidence": 0.73,
+  "knowledgeRefs": [],
+  "kcpSessionRefs": [
+    "kcp_s003_0001"
+  ],
+  "submittedByAgentId": "agent_reviewer_002",
+  "contentRef": "examples/scenario-003-conflicting-evidence/source-b.md",
+  "auditRefs": [
+    "audit_s003_0001"
+  ],
+  "eventRefs": [
+    "event_s003_0001"
+  ],
+  "metadata": {
+    "scenario": "scenario-003-conflicting-evidence",
+    "claimId": "claim_s003_0001",
+    "claimPosition": "contradicts",
+    "conflictGroup": "claim_s003_0001",
+    "schemaVersion": "1.0.0"
+  },
+  "extensions": {},
+  "collectedAt": "2026-07-09T17:01:00Z",
+  "createdAt": "2026-07-09T17:01:00Z",
+  "updatedAt": "2026-07-09T17:01:00Z"
+}
