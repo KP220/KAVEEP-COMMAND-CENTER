@@ -1,0 +1,27 @@
+{
+  "eventId": "event_20260709_0001",
+  "eventType": "kcp.session.completed",
+  "eventVersion": "1.0.0",
+  "timestamp": "2026-07-09T14:30:00Z",
+  "publisher": "agent_kcp_engine",
+  "correlationId": "kcp_0001",
+  "relatedEntityId": "kcp_0001",
+  "relatedEntityType": "kcp_session",
+  "priority": "normal",
+  "category": "kcp",
+  "securityClassification": "internal",
+  "payloadRef": "payload_event_20260709_0001",
+  "auditRef": "audit_20260709_0001",
+  "delivery": {
+    "status": "published",
+    "subscriberCount": 4,
+    "deliveredCount": 4,
+    "failedCount": 0
+  },
+  "metadata": {
+    "schemaVersion": "1.0.0",
+    "environment": "development"
+  },
+  "extensions": {},
+  "createdAt": "2026-07-09T14:30:00Z"
+}
