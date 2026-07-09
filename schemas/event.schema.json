@@ -12,9 +12,12 @@
     "timestamp",
     "publisher",
     "correlationId",
+    "relatedEntityId",
+    "relatedEntityType",
     "priority",
     "securityClassification",
-    "payloadRef"
+    "payloadRef",
+    "createdAt"
   ],
   "properties": {
     "eventId": {
@@ -38,10 +41,37 @@
     },
     "correlationId": {
       "type": "string",
-      "description": "Shared ID used to connect related events, audit records, tasks, and workflows."
+      "description": "Shared ID used to connect related events, audit records, tasks, workflows, missions, and KCP sessions."
     },
     "relatedEntityId": {
-      "type": "string"
+      "type": "string",
+      "description": "Identifier of the entity related to this event."
+    },
+    "relatedEntityType": {
+      "type": "string",
+      "enum": [
+        "mission",
+        "goal",
+        "workflow",
+        "task",
+        "agent",
+        "capability",
+        "passport",
+        "identity",
+        "user",
+        "approval",
+        "policy",
+        "policy_check",
+        "security_check",
+        "knowledge",
+        "evidence",
+        "kcp_session",
+        "audit",
+        "event",
+        "plugin",
+        "api_call",
+        "system"
+      ]
     },
     "priority": {
       "type": "string",
@@ -89,10 +119,6 @@
       "type": "string",
       "description": "Reference to the event payload. Large payloads should not be embedded directly."
     },
-    "metadata": {
-      "type": "object",
-      "additionalProperties": true
-    },
     "auditRef": {
       "type": "string",
       "pattern": "^audit_[a-zA-Z0-9_-]+$"
@@ -128,6 +154,14 @@
           "minimum": 0
         }
       }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true
     },
     "createdAt": {
       "type": "string",
