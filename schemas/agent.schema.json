@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kaveep.dev/schemas/agent.schema.json",
+  "title": "KAVEEP Agent",
+  "description": "Canonical schema for an autonomous or semi-autonomous KAVEEP agent.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "agentId",
+    "name",
+    "version",
+    "status",
+    "passportId",
+    "identityId",
+    "capabilities",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "agentId": {
+      "type": "string",
+      "pattern": "^agent_[a-zA-Z0-9_-]+$",
+      "description": "Stable unique identifier for the agent."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "description": "Agent version."
+    },
+    "description": {
+      "type": "string"
+    },
+    "repository": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "created",
+        "installed",
+        "configured",
+        "ready",
+        "running",
+        "paused",
+        "waiting_approval",
+        "stopped",
+        "updating",
+        "recovering",
+        "retired",
+        "archived"
+      ]
+    },
+    "passportId": {
+      "type": "string",
+      "pattern": "^passport_[a-zA-Z0-9_-]+$"
+    },
+    "identityId": {
+      "type": "string",
+      "pattern": "^identity_[a-zA-Z0-9_-]+$"
+    },
+    "trustLevel": {
+      "type": "string",
+      "enum": [
+        "untrusted",
+        "experimental",
+        "limited",
+        "trusted",
+        "verified",
+        "certified",
+        "core"
+      ]
+    },
+    "permissionLevel": {
+      "type": "string",
+      "enum": [
+        "none",
+        "read_only",
+        "limited",
+        "standard",
+        "elevated",
+        "admin"
+      ]
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^capability_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "policyProfile": {
+      "type": "string"
+    },
+    "riskProfile": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "critical"
+      ]
+    },
+    "health": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "healthScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "lastHeartbeatAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastError": {
+          "type": "string"
+        },
+        "restartCount": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "currentTaskId": {
+          "type": "string",
+          "pattern": "^task_[a-zA-Z0-9_-]+$"
+        },
+        "currentState": {
+          "type": "string"
+        },
+        "queueSize": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cpuUsage": {
+          "type": "number",
+          "minimum": 0
+        },
+        "memoryUsage": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "auditRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^audit_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
