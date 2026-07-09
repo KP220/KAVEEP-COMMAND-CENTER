@@ -1,0 +1,76 @@
+{
+  "kcpSessionId": "kcp_s002_0001",
+  "question": "Should this claim be accepted into the KAVEEP Knowledge Repository?",
+  "context": "Scenario-002 demonstrates that insufficient evidence must result in an unverified outcome. Only one weak external reference is available, and independent corroboration is missing.",
+  "status": "unverified",
+  "verificationResult": "unverified",
+  "verificationLevel": "unverified",
+  "confidence": 0.28,
+  "evidenceRefs": [
+    "evidence_s002_0001"
+  ],
+  "knowledgeRefs": [],
+  "policyRefs": [
+    "policy_kcp_001",
+    "policy_evidence_001"
+  ],
+  "missionId": "mission_knowledge_validation",
+  "taskId": "task_verify_knowledge",
+  "participantAgentIds": [
+    "agent_reviewer_001",
+    "agent_reviewer_002",
+    "agent_reviewer_003"
+  ],
+  "participantSummaries": [
+    {
+      "agentId": "agent_reviewer_001",
+      "recommendation": "unverified",
+      "confidence": 0.28,
+      "reasoningSummary": "Only one weak source is available. Independent corroboration is missing.",
+      "evidenceUsed": [
+        "evidence_s002_0001"
+      ]
+    },
+    {
+      "agentId": "agent_reviewer_002",
+      "recommendation": "needs_more_evidence",
+      "confidence": 0.25,
+      "reasoningSummary": "The claim cannot be verified without additional independent evidence.",
+      "evidenceUsed": [
+        "evidence_s002_0001"
+      ]
+    },
+    {
+      "agentId": "agent_reviewer_003",
+      "recommendation": "unverified",
+      "confidence": 0.30,
+      "reasoningSummary": "No independent convergence was reached. The result must remain unverified.",
+      "evidenceUsed": [
+        "evidence_s002_0001"
+      ]
+    }
+  ],
+  "conflicts": [],
+  "decision": {
+    "summary": "Consensus did not reach verification.",
+    "reason": "Evidence is insufficient and lacks independent corroboration.",
+    "limitations": "The claim may be reconsidered if additional independent evidence is submitted."
+  },
+  "auditRefs": [
+    "audit_s002_0001"
+  ],
+  "eventRefs": [
+    "event_s002_0001"
+  ],
+  "metadata": {
+    "scenario": "scenario-002-insufficient-evidence",
+    "schemaVersion": "1.0.0",
+    "expectedResult": "unverified",
+    "knowledgePublished": false
+  },
+  "extensions": {},
+  "startedAt": "2026-07-09T16:05:00Z",
+  "completedAt": "2026-07-09T16:08:00Z",
+  "createdAt": "2026-07-09T16:05:00Z",
+  "updatedAt": "2026-07-09T16:08:00Z"
+}
