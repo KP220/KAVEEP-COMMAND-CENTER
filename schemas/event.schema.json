@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kaveep.dev/schemas/event.schema.json",
+  "title": "KAVEEP Event",
+  "description": "Canonical schema for immutable ecosystem events in KAVEEP.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "eventId",
+    "eventType",
+    "eventVersion",
+    "timestamp",
+    "publisher",
+    "correlationId",
+    "priority",
+    "securityClassification",
+    "payloadRef"
+  ],
+  "properties": {
+    "eventId": {
+      "type": "string",
+      "pattern": "^event_[a-zA-Z0-9_-]+$"
+    },
+    "eventType": {
+      "type": "string",
+      "minLength": 1
+    },
+    "eventVersion": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "publisher": {
+      "type": "string",
+      "description": "Entity that published the event."
+    },
+    "correlationId": {
+      "type": "string",
+      "description": "Shared ID used to connect related events, audit records, tasks, and workflows."
+    },
+    "relatedEntityId": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "emergency",
+        "critical",
+        "high",
+        "normal",
+        "low",
+        "background"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "mission",
+        "goal",
+        "workflow",
+        "task",
+        "agent",
+        "knowledge",
+        "policy",
+        "security",
+        "kcp",
+        "audit",
+        "marketplace",
+        "plugin",
+        "api",
+        "notification",
+        "monitoring",
+        "system"
+      ]
+    },
+    "securityClassification": {
+      "type": "string",
+      "enum": [
+        "public",
+        "internal",
+        "restricted",
+        "confidential",
+        "critical"
+      ]
+    },
+    "payloadRef": {
+      "type": "string",
+      "description": "Reference to the event payload. Large payloads should not be embedded directly."
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "auditRef": {
+      "type": "string",
+      "pattern": "^audit_[a-zA-Z0-9_-]+$"
+    },
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "created",
+            "published",
+            "validated",
+            "delivered",
+            "processed",
+            "acknowledged",
+            "archived",
+            "replayed",
+            "failed"
+          ]
+        },
+        "subscriberCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "deliveredCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "failedCount": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
