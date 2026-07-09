@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kaveep.dev/schemas/evidence.schema.json",
+  "title": "KAVEEP Evidence",
+  "description": "Canonical schema for traceable evidence used by Knowledge and KCP decisions.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidenceId",
+    "title",
+    "evidenceType",
+    "source",
+    "verificationStatus",
+    "reliability",
+    "independenceScore",
+    "collectedAt",
+    "createdAt"
+  ],
+  "properties": {
+    "evidenceId": {
+      "type": "string",
+      "pattern": "^evidence_[a-zA-Z0-9_-]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "evidenceType": {
+      "type": "string",
+      "enum": [
+        "document",
+        "citation",
+        "dataset",
+        "api_result",
+        "human_statement",
+        "agent_observation",
+        "system_log",
+        "experiment_result",
+        "external_reference",
+        "other"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceType",
+        "sourceRef"
+      ],
+      "properties": {
+        "sourceType": {
+          "type": "string",
+          "enum": [
+            "url",
+            "file",
+            "repository",
+            "database",
+            "api",
+            "manual",
+            "sensor",
+            "system",
+            "unknown"
+          ]
+        },
+        "sourceRef": {
+          "type": "string"
+        },
+        "sourceName": {
+          "type": "string"
+        },
+        "sourceVersion": {
+          "type": "string"
+        },
+        "retrievedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "citation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "preferredCitation": {
+          "type": "string"
+        },
+        "citationStyle": {
+          "type": "string"
+        },
+        "locator": {
+          "type": "string",
+          "description": "Page, line, timestamp, commit, section, or other location marker."
+        },
+        "license": {
+          "type": "string"
+        }
+      }
+    },
+    "verificationStatus": {
+      "type": "string",
+      "enum": [
+        "verified",
+        "unverified",
+        "rejected",
+        "deprecated",
+        "superseded"
+      ]
+    },
+    "reliability": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        "low",
+        "moderate",
+        "high",
+        "authoritative"
+      ]
+    },
+    "independenceScore": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Estimated independence from other evidence sources."
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "knowledgeRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^knowledge_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "kcpSessionRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^kcp_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "submittedByAgentId": {
+      "type": "string",
+      "pattern": "^agent_[a-zA-Z0-9_-]+$"
+    },
+    "submittedByUserId": {
+      "type": "string",
+      "pattern": "^user_[a-zA-Z0-9_-]+$"
+    },
+    "contentHash": {
+      "type": "string",
+      "description": "Optional hash for integrity verification."
+    },
+    "contentRef": {
+      "type": "string",
+      "description": "Reference to evidence content. Large content should not be embedded."
+    },
+    "auditRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^audit_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "eventRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^event_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "collectedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
