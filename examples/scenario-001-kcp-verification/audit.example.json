@@ -1,0 +1,53 @@
+{
+  "auditId": "audit_s001_0001",
+  "eventType": "kcp_session_completed",
+  "timestamp": "2026-07-09T15:09:00Z",
+  "actor": {
+    "actorId": "agent_kcp_engine",
+    "actorType": "kcp_engine",
+    "actorName": "KAVEEP KCP Engine"
+  },
+  "target": {
+    "targetId": "kcp_s001_0001",
+    "targetType": "kcp_session"
+  },
+  "action": "Published verified knowledge after successful KCP consensus.",
+  "result": "success",
+  "riskLevel": "moderate",
+  "policyRefs": [
+    "policy_kcp_001",
+    "policy_evidence_001"
+  ],
+  "evidenceRefs": [
+    "evidence_s001_0001"
+  ],
+  "knowledgeRefs": [
+    "knowledge_s001_0001"
+  ],
+  "agentRefs": [
+    "agent_reviewer_001",
+    "agent_reviewer_002",
+    "agent_reviewer_003"
+  ],
+  "eventRefs": [
+    "event_s001_0001"
+  ],
+  "kcpSessionRef": "kcp_s001_0001",
+  "correlationId": "kcp_s001_0001",
+  "verification": {
+    "verificationStatus": "verified",
+    "verificationLevel": "verified",
+    "confidence": 0.94,
+    "consensusScore": 0.94,
+    "evidenceCount": 1,
+    "independentAgentCount": 3,
+    "policyPassed": true
+  },
+  "notes": "Scenario-001 completed successfully.",
+  "metadata": {
+    "scenario": "scenario-001-kcp-verification",
+    "schemaVersion": "1.0.0"
+  },
+  "extensions": {},
+  "createdAt": "2026-07-09T15:09:00Z"
+}
