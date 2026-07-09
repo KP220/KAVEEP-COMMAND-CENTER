@@ -34,6 +34,7 @@
   ],
   "metadata": {
     "scenario": "scenario-003-conflicting-evidence",
+    "claimId": "claim_s003_0001",
     "claimPosition": "supports",
     "conflictGroup": "claim_s003_0001",
     "schemaVersion": "1.0.0"
