@@ -103,12 +103,14 @@ Audit
 ├── evidenceRefs → Evidence
 ├── knowledgeRefs → Knowledge
 ├── agentRefs → Agent
+├── eventRefs → Event
 ├── kcpSessionRef → KCP Session
 └── previousAuditRef → Audit
 
 Event
 ├── relatedEntityId → Any Entity
-├── correlationId → Mission / Workflow / Task / Audit Chain
+├── relatedEntityType → Entity Type
+├── correlationId → Mission / Workflow / Task / Audit / KCP Chain
 └── auditRef → Audit
 
 Knowledge Claim
@@ -136,6 +138,7 @@ Knowledge Publication
 | Entity      | Prefix        |
 | ----------- | ------------- |
 | Agent       | `agent_`      |
+| Approval    | `approval_`   |
 | Audit       | `audit_`      |
 | Capability  | `capability_` |
 | Event       | `event_`      |
@@ -148,20 +151,39 @@ Knowledge Publication
 | Passport    | `passport_`   |
 | Policy      | `policy_`     |
 | Task        | `task_`       |
+| User        | `user_`       |
 | Workflow    | `workflow_`   |
 
+Risk Levels
+
+The canonical risk levels are:
 
 low
 moderate
 high
 critical
 
+All schemas that define risk must use these values exactly.
+
+Governance Rules
+
 Execution requires Policy.
+
 Policy requires Audit.
+
 Knowledge requires Evidence.
+
 Verified Knowledge requires KCP.
+
 KCP requires Evidence, Agent Review, Conflict Analysis, and Policy.
+
 High-risk execution requires Human Approval.
+
+Insufficient evidence must result in unverified.
+
+Insufficient evidence must never automatically result in verified.
+
+Insufficient evidence must never automatically result in rejected.
 
 Acceptance Criteria
 
@@ -175,3 +197,5 @@ Events can be correlated with Audit.
 Risk levels are consistent across schemas.
 Entity IDs follow canonical prefixes.
 Insufficient evidence results in unverified.
+No important entity exists outside traceability.
+
