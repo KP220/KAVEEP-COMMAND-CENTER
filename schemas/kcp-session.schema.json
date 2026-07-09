@@ -1,0 +1,261 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kaveep.dev/schemas/kcp-session.schema.json",
+  "title": "KAVEEP KCP Session",
+  "description": "Canonical schema for a KAVEEP Consensus Protocol verification session.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kcpSessionId",
+    "question",
+    "status",
+    "verificationResult",
+    "verificationLevel",
+    "evidenceRefs",
+    "participantAgentIds",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "kcpSessionId": {
+      "type": "string",
+      "pattern": "^kcp_[a-zA-Z0-9_-]+$"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "created",
+        "collecting_evidence",
+        "reviewing",
+        "waiting_agents",
+        "conflict_detected",
+        "consensus_reached",
+        "unverified",
+        "published",
+        "archived"
+      ]
+    },
+    "verificationResult": {
+      "type": "string",
+      "enum": [
+        "verified",
+        "unverified",
+        "rejected",
+        "deprecated",
+        "superseded"
+      ],
+      "description": "Final KCP verification result. Insufficient evidence must result in unverified."
+    },
+    "verificationLevel": {
+      "type": "string",
+      "enum": [
+        "unverified",
+        "preliminary",
+        "reviewed",
+        "verified",
+        "certified",
+        "foundational"
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^evidence_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "knowledgeRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^knowledge_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "policyRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^policy_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "missionId": {
+      "type": "string",
+      "pattern": "^mission_[a-zA-Z0-9_-]+$"
+    },
+    "taskId": {
+      "type": "string",
+      "pattern": "^task_[a-zA-Z0-9_-]+$"
+    },
+    "participantAgentIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^agent_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "participantSummaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "agentId",
+          "recommendation"
+        ],
+        "properties": {
+          "agentId": {
+            "type": "string",
+            "pattern": "^agent_[a-zA-Z0-9_-]+$"
+          },
+          "recommendation": {
+            "type": "string",
+            "enum": [
+              "verified",
+              "unverified",
+              "rejected",
+              "needs_more_evidence"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "reasoningSummary": {
+            "type": "string"
+          },
+          "evidenceUsed": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^evidence_[a-zA-Z0-9_-]+$"
+            },
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "conflictType",
+          "description"
+        ],
+        "properties": {
+          "conflictType": {
+            "type": "string",
+            "enum": [
+              "evidence_conflict",
+              "reasoning_conflict",
+              "policy_conflict",
+              "confidence_conflict",
+              "source_conflict"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "relatedEvidenceRefs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^evidence_[a-zA-Z0-9_-]+$"
+            },
+            "uniqueItems": true
+          },
+          "resolutionStatus": {
+            "type": "string",
+            "enum": [
+              "unresolved",
+              "resolved",
+              "requires_more_evidence",
+              "escalated"
+            ]
+          }
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "summary": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "publishedKnowledgeId": {
+          "type": "string",
+          "pattern": "^knowledge_[a-zA-Z0-9_-]+$"
+        }
+      }
+    },
+    "auditRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^audit_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "eventRefs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^event_[a-zA-Z0-9_-]+$"
+      },
+      "uniqueItems": true
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "startedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "completedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
